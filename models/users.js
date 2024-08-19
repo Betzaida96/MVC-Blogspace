@@ -3,6 +3,8 @@ const sequelize = require('../config/connection');
 
 class User extends Model {}
 
+// This sets up the model for a user. Each user will have a username and password.
+
 User.init(
     {
         id: {
