@@ -9,6 +9,7 @@ router.get('/signup', (req, res) =>{
 
 // Create a new user and save session data for new user
 router.post('/signup', [
+    body('name').notEmpty().withMessage('Name is required'),
     body('email').isEmail().withMessage('Must be a valid email address'),
     body('password').isLength({ min: 6 }).withMessage('Password must be at least 6 characters long')
 ],
@@ -26,7 +27,8 @@ router.post('/signup', [
             res.status(200).json(userData);
         });        
     } catch (err) {
-        res.status(400).json(err);
+        console.error('Signup error:', err);
+        res.status(400).json({ message: 'An error occurred during signup', error: err.message });
     }
 });
 
@@ -44,19 +46,13 @@ async (req,res) => {
     try {
         const userData = await User.findOne({ where: { email: req.body.email } });
         if (!userData) {
-            res
-            .status(400)
-            .json({ message: 'Incorrect email or password, please try again' });
-            return;
+            return res.status(400).json({ message: 'Incorrect email or password, please try again' });  
         }
 
         const validPassword = await userData.checkPassword(req.body.password);
 
         if (!validPassword) {
-            res
-            .status(400)
-            .json({ message: 'Incorrect email or password, please try again' });
-            return;
+            return res.status(400).json({ message: 'Incorrect email or password, please try again' });
         }
 
         req.session.save(() =>{
@@ -66,7 +62,8 @@ async (req,res) => {
          });
 
     } catch (err) {
-        res.status(400).json(err);
+        console.error('Login error:', err);
+        res.status(500).json({ message: 'An error occured during login', error: err.message});
     }
 });
 
@@ -99,7 +96,7 @@ router.put('/:id', async (req, res) => {
         res.status(200).json(user);
 
     } catch (err) {
-        console.error('Error:', err);
+        console.error('Update error:', err);
         res.status(500).json({ message: 'An error occurred', error: err.message});
     }
 });
