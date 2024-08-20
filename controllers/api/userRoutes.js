@@ -9,7 +9,7 @@ router.get('/signup', (req, res) =>{
 
 // Create a new user and save session data for new user
 router.post('/signup', [
-    body('name').notEmpty().withMessage('Name is required'),
+    body('username').notEmpty().withMessage('Username is required'),
     body('email').isEmail().withMessage('Must be a valid email address'),
     body('password').isLength({ min: 6 }).withMessage('Password must be at least 6 characters long')
 ],
@@ -44,6 +44,8 @@ async (req,res) => {
     }
     
     try {
+        res.set('Cache-Control', 'no-store, no-cache, must-revalidate, private');
+
         const userData = await User.findOne({ where: { email: req.body.email } });
         if (!userData) {
             return res.status(400).json({ message: 'Incorrect email or password, please try again' });  

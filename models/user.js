@@ -18,7 +18,7 @@ User.init(
             primaryKey: true,
             autoIncrement: true
         },
-        name: {
+        username: {
             type: DataTypes.STRING,
             allowNull: false,
         },
@@ -44,7 +44,7 @@ User.init(
             }
         },
         sequelize,
-        modelName: 'user'
+        modelName: 'users'
     }
 );
 
