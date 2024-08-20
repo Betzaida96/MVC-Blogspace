@@ -2,6 +2,10 @@ const router = require('express').Router();
 const { User } = require('../../models');
 const { body, validationResult } = require('express-validator');
 
+// Get the signup page
+router.get('/signup', (req, res) =>{
+    res.render('signup');
+})
 
 // Create a new user and save session data for new user
 router.post('/signup', [

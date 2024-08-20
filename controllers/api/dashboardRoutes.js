@@ -5,7 +5,7 @@ const withAuth = require('../../utils/auth');
 // get the dashboard
 router.get('/', withAuth, async (req, res) => {
     try {
-        const postData = await User.findAll({
+        const postData = await Post.findAll({
             where: {user_id: req.session.user_id},
             include: [{ model: User, attributes: ['username'] }],
         });
@@ -45,7 +45,7 @@ router.put('/edit/:id', withAuth, async (req, res) => {
             },
         });
 
-        if (!updatedPost) {
+        if (!updatedPost[0]) {
             res.status(404).json({ message: 'No post found with this id' });
             return;
         }
@@ -57,7 +57,7 @@ router.put('/edit/:id', withAuth, async (req, res) => {
 });
 
 // Delete a blog post
-router.delete('/dele/:id', withAuth, async (req, res) =>{
+router.delete('/delete/:id', withAuth, async (req, res) =>{
     try {
         const postData = await Post.destroy({
             where: {
