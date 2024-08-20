@@ -1,3 +1,13 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const logoutButton = document.querySelector('#logoutButton');
+    
+    // check if the logout button exists before adding the event listener
+    if (logoutButton) {
+        logoutButton.addEventListener('click', logout);
+    }
+});
+
+// Handler for logout butotn click
 const logout = async () => {
     const response = await fetch('/api/users/logout', {
         method: 'POST',
@@ -10,5 +20,3 @@ const logout = async () => {
         alert(response.statusText);
     }
 };
-
-document.querySelector('#logoutButton').addEventListener('click', logout);

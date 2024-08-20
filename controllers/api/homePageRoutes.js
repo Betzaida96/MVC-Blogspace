@@ -25,7 +25,8 @@ router.get('/', async (req, res) => {
 
         res.render('homepage', {
             posts,
-            logged_in: req.session.logged_in
+            logged_in: req.session.logged_in,
+            stylesheet: '/css/homepage.css'
         });
     } catch (err) {
         res.status(500).json(err);
@@ -39,7 +40,9 @@ router.get('/login', (req, res) => {
         return;
     }
 
-    res.render('login');
+    res.render('login', {
+        stylesheet: '/css/login.css'
+    });
 });
 
 // Get the signup page, if user is allready logged in, redirect to homepage
@@ -49,7 +52,9 @@ router.get('/signup', (req, res) => {
         return;
     }
 
-    res.render('signup');
+    res.render('signup', {
+        stylesheet: '/css/signup.css'
+    });
 });
 
 // Get a single post by id
