@@ -4,5 +4,11 @@
         <h2>{{this.title}}</h2>
         <p>{{this.content}}</p>
         <p>Posted by {{this.user.username}}</p>
+        {{#if logged_in}}
+        {{#if_eq ../logged_in_user_id this.user.id}}
+        <a href="/post/edit/{{this.id}}">Edit</a>
+        <a href="#" class="delete-post" data-id="{{this.id}}">Delete</a>
+        {{/if_eq}}
+        {{/if}}
     </div>
     {{/each}}
