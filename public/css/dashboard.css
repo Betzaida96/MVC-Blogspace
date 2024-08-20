@@ -1,0 +1,62 @@
+.dashboard-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-container h1 {
+    margin-top: 0;
+}
+
+.post {
+    background: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.post h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.post textarea {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.add-post-btn, .edit-post-btn, .delete-post-btn {
+    margin-top: 10px;
+    margin-right: 5px;
+}
+
+button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+.add-post-btn {
+    background-color: #28a745; 
+}
+
+.edit-post-btn {
+    background-color: #007bff;
+}
+
+.delete-post-btn {
+    background-color: #dc3545;
+}

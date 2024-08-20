@@ -2,7 +2,7 @@ const router = require('express').Router();
 
 // Import route files
 const userRoutes = require('./api/userRoutes');
-const postRoutes = require('./api/postRoutes');
+const postRoutes = require('./api/PostRoutes');
 const homePageRoutes = require('./api/homePageRoutes');
 const dashboardRoutes = require('./api/dashboardRoutes');
 

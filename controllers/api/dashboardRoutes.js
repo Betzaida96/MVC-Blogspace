@@ -14,7 +14,8 @@ router.get('/', withAuth, async (req, res) => {
 
         res.render('dashboard', {
             posts,
-            logged_in: req.session.logged_in
+            logged_in: req.session.logged_in,
+            stylesheet: '/css/dashboard.css',
         });
     } catch (err) {
         res.status(500).json(err);

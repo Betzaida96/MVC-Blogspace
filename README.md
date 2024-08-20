@@ -32,3 +32,5 @@ Github: https://github.com/Betzaida96/MVC-Blogspace
 Render: 
 
 ## Photos
+![homepage](image.png)
+![Login](image-1.png)
