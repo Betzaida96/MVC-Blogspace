@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MVC Blog</title>
+</head>
+<body>
+<div class="flex-column justify-space-around">
+    <header class="display-flex justify-space-between align-center p-2">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/dashboard">Dashboard</a></li>
+            {{#if logged_in}}
+                <li><a href="/logout">Logout</a></li>
+            {{else}}
+                <li><a href="/login">Login</a></li>
+            {{/if}}
+        </ul>
+    </header>
+
+    <main>
+        {{body}}
+    </main>
+
+    <footer>
+        <p>© 2024 MVC Blog. All rights reserved.</p>
+    </footer>
+</div>
+</body>
+</html>
