@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MVC Blog</title>
+    <link rel="stylesheet" href="/public/css/main.css">
+    {{#if stylesheet}}
+    <link rel="stylesheet" href="{{stylesheet}}">
+    {{/if}}
 </head>
 <body>
 <div class="flex-column justify-space-around">
